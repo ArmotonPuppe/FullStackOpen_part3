@@ -4,16 +4,14 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js",
+    "dev": "node --watch index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "puppe",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "express": "^4.21.1"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.7"
+    "express": "^4.21.2",
+    "morgan": "^1.10.0"
   }
 }
