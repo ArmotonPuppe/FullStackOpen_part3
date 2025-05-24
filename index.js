@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const morgan = require('morgan')
+const cors = require('cors')
 
 
 
@@ -71,6 +72,7 @@ app.get('/api/persons/:id', (request, response) => {
     }
 })
 
+
 app.post('/api/persons', (request, response) => {
     const body = request.body
     if(!body.name || !body.number){
@@ -86,12 +88,13 @@ app.post('/api/persons', (request, response) => {
     const person = {
         id: newId,
         name: body.name,
-        number: body.number,
+        number: body.number
     }
     persons = persons.concat(person)
     console.log("added person " + person)
     response.json(person)
 })
+
 
 app.delete('/api/persons/:id', (request, response)=>{
     const id = request.params.id
@@ -101,7 +104,7 @@ app.delete('/api/persons/:id', (request, response)=>{
 })
 
 console.log('Hello World')
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 app.listen(PORT, ()=>{
     console.log(`Server running on port ${PORT}`)
 })
